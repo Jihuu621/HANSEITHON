@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
     {
         float moveInput = 0f;
 
-        // A = 왼쪽 (-1), D = 오른쪽 (+1)
         if (Input.GetKey(KeyCode.A))
         {
             moveInput = -1f;
@@ -40,7 +39,6 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        // W, Space 점프
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && IsGrounded())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
