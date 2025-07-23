@@ -8350,10 +8350,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChatManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1593163255292003176, guid: 6397dab9c0e4dfe4ba1d13a63adcf104, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
