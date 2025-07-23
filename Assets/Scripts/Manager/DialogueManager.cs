@@ -8,6 +8,7 @@ using TMPro;
 public class DialogueLine
 {
     public string speaker;
+    [TextArea]
     public string line;
 }
 
