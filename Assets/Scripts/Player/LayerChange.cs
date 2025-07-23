@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LayerChange : MonoBehaviour
 {
@@ -11,8 +12,25 @@ public class LayerChange : MonoBehaviour
     public GameObject particlePrefab;
     public int particleCount = 10;
 
+    [Header("비네트 이미지")]
+    public Image vignetteImage;  // V_Canvas 안의 Vignette Image 컴포넌트 연결
+    public float vignetteFadeDuration = 0.5f;
+
+    private Coroutine vignetteCoroutine;
+
     private void Start()
     {
+        if (vignetteImage != null)
+        {
+            Color c = vignetteImage.color;
+            c.a = 0f;
+            vignetteImage.color = c;
+        }
+        else
+        {
+            Debug.LogWarning("Vignette Image가 연결되지 않았습니다.");
+        }
+
         LayerSwitch();
     }
 
@@ -35,6 +53,22 @@ public class LayerChange : MonoBehaviour
 
     private void LayerSwitch()
     {
+        // 이전 코루틴 취소
+        if (vignetteCoroutine != null)
+        {
+            StopCoroutine(vignetteCoroutine);
+            vignetteCoroutine = null;
+        }
+
+        // 비네트 이미지 색상 & 알파 초기화
+        if (vignetteImage != null)
+        {
+            Color c = GetColorForLayer(layer);
+            c.a = 0.7f;
+            vignetteImage.color = c;
+            vignetteCoroutine = StartCoroutine(FadeOutVignette());
+        }
+
         for (int i = 0; i < layerObjs.Length; i++)
         {
             GameObject obj = layerObjs[i];
@@ -61,12 +95,10 @@ public class LayerChange : MonoBehaviour
                         if (ps != null)
                         {
                             var main = ps.main;
-                            main.startSize = .4f;
+                            main.startSize = 0.4f;
                             main.startColor = GetColorForLayer(prevLayer);
 
                             var shape = ps.shape;
-
-                            // Collider 영역 설정 (BoxCollider2D만 처리)
                             BoxCollider2D box = child.GetComponent<BoxCollider2D>();
                             if (box != null)
                             {
@@ -78,7 +110,7 @@ public class LayerChange : MonoBehaviour
                                 Debug.LogWarning("BoxCollider2D가 없습니다: " + child.name);
                             }
 
-                            StartCoroutine(PlayParticleAndStopEmitting(ps, .3f, particleCount));
+                            StartCoroutine(PlayParticleAndStopEmitting(ps, 0.3f, particleCount));
                         }
                         else
                         {
@@ -91,6 +123,25 @@ public class LayerChange : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator FadeOutVignette()
+    {
+        float elapsed = 0f;
+        Color c = vignetteImage.color;
+
+        while (elapsed < vignetteFadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Lerp(0.25f, 0f, elapsed / vignetteFadeDuration);
+            c.a = alpha;
+            vignetteImage.color = c;
+            yield return null;
+        }
+
+        c.a = 0f;
+        vignetteImage.color = c;
+        vignetteCoroutine = null;
     }
 
     private IEnumerator PlayParticleAndStopEmitting(ParticleSystem ps, float duration, int emitCount)
@@ -123,5 +174,6 @@ public class LayerChange : MonoBehaviour
             case 4: return new Color(1f, 0.4f, 0.7f); // 핑크
             default: return Color.white;
         }
-    }
+    }                       
 }
+                         
