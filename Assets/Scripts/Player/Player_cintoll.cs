@@ -1,0 +1,44 @@
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public float moveSpeed = 5f;    
+    public float jumpForce = 7f;      
+    public LayerMask groundLayer;      
+
+    private Rigidbody2D rb;
+    private BoxCollider2D col;
+   
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<BoxCollider2D>();
+    }
+
+    void Update()
+    {
+        Move();
+        Jump();
+    }
+
+    void Move()
+    {
+        float moveInput = Input.GetAxisRaw("Horizontal");
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+    }
+
+    void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+    }
+
+    bool IsGrounded()
+    {     
+        RaycastHit2D hit = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0f, Vector2.down, 0.1f, groundLayer);
+        return hit.collider != null;
+    }
+}
