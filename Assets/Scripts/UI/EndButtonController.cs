@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EndButtonController : MonoBehaviour
 {
     public Button endButton;
-    public TextMeshProUGUI endButtonText; 
+    public TextMeshProUGUI endButtonText;
     public int requiredClicks = 3;
 
     private int clickCount = 0;
@@ -18,6 +18,9 @@ public class EndButtonController : MonoBehaviour
 
     void OnEndButtonClicked()
     {
+        if (SceneManager.GetActiveScene().name != "Level_5")
+            return;
+
         clickCount++;
 
         if (clickCount == 1)
@@ -27,8 +30,8 @@ public class EndButtonController : MonoBehaviour
 
         if (clickCount >= requiredClicks)
         {
-            // SceneManager.LoadScene("");
             Debug.Log("∆„");
+            // SceneManager.LoadScene("¥Ÿ¿Ωæ¿¿Ã∏ß");
         }
     }
 }
