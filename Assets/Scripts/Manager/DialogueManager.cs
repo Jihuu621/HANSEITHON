@@ -4,22 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public enum Emotion
-{
-    P2_Straight,
-    P2_Straight_Pyodok,
-    P2_Smile,
-    P2_Smile_Pyodok,
-    P2_Smile2,
-    P2_Smile2_Pyodok,
-}
-
 [System.Serializable]
 public class DialogueLine
 {
     public string speaker;
     public string line;
-    public Emotion emotion;
 }
 
 public class DialogueManager : MonoBehaviour
@@ -40,12 +29,6 @@ public class DialogueManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip typeSound;
 
-    private Dictionary<Emotion, Sprite> emotionSprites;
-
-    void Awake()
-    {
-        LoadEmotionSprites();
-    }
 
     void Start()
     {
@@ -87,7 +70,6 @@ public class DialogueManager : MonoBehaviour
 
         typingCoroutine = StartCoroutine(TypeText(line.line));
         AdjustSpeakerHighlight(line.speaker);
-        UpdateEmotionImage(line.speaker, line.emotion);
     }
 
     IEnumerator TypeText(string fullText)
@@ -135,40 +117,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void UpdateEmotionImage(string speaker, Emotion emotion)
-    {
-        if (!emotionSprites.ContainsKey(emotion))
-            return;
-
-        if (speaker == "플레이어")
-        {
-            return;
-        }
-        else if (speaker == "캐릭터")
-        {
-            rightImage.sprite = emotionSprites[emotion];
-        }
-    }
-
-    void LoadEmotionSprites()
-    {
-        emotionSprites = new Dictionary<Emotion, Sprite>();
-
-        foreach (Emotion emo in System.Enum.GetValues(typeof(Emotion)))
-        {
-            string path = "Chat/" + emo.ToString();
-            Sprite sprite = Resources.Load<Sprite>(path);
-
-            if (sprite != null)
-            {
-                emotionSprites[emo] = sprite;
-            }
-            else
-            {
-                Debug.LogWarning($"스프라이트를 찾을 수 없음: {path}");
-            }
-        }
-    }
 
     public void StartDialogue()
     {
