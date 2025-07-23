@@ -8801,7 +8801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7099348956746905389, guid: d1627b5470a6baf4b875c594b29c812b, type: 3}
       propertyPath: moveSpeed
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8084839191380097023, guid: d1627b5470a6baf4b875c594b29c812b, type: 3}
       propertyPath: telTar2

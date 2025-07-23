@@ -58,15 +58,25 @@ public class PlayerController : MonoBehaviour
 
     bool IsGrounded()
     {
-        Vector2 origin = col.bounds.center;
-        Vector2 size = col.size;
         float castDistance = 0.1f;
+        Bounds bounds = col.bounds;
 
-        RaycastHit2D hit = Physics2D.CapsuleCast(origin, size, CapsuleDirection2D.Vertical, 0f, Vector2.down, castDistance, groundLayer);
-        Debug.DrawLine(origin, origin + Vector2.down * (col.bounds.extents.y + castDistance), Color.green);
+        Vector2 center = bounds.center;
+        Vector2 left = new Vector2(bounds.min.x + 0.05f, bounds.min.y);
+        Vector2 right = new Vector2(bounds.max.x - 0.05f, bounds.min.y);
 
-        return hit.collider != null;
+        RaycastHit2D centerHit = Physics2D.Raycast(center, Vector2.down, castDistance, groundLayer);
+        Debug.DrawLine(center, center + Vector2.down * castDistance, Color.green);
+
+        RaycastHit2D leftHit = Physics2D.Raycast(left, Vector2.down, castDistance, groundLayer);
+        Debug.DrawLine(left, left + Vector2.down * castDistance, Color.red);
+
+        RaycastHit2D rightHit = Physics2D.Raycast(right, Vector2.down, castDistance, groundLayer);
+        Debug.DrawLine(right, right + Vector2.down * castDistance, Color.blue);
+
+        return centerHit.collider != null || leftHit.collider != null || rightHit.collider != null;
     }
+
 
 
 
