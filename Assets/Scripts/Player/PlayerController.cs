@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && IsGrounded())
+        if ((Input.GetKeyDown(KeyCode.W)&& IsGrounded()))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isJumping = true;
@@ -58,9 +58,17 @@ public class PlayerController : MonoBehaviour
 
     bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0f, Vector2.down, 0.1f, groundLayer);
+        Vector2 origin = col.bounds.center;
+        Vector2 size = col.size;
+        float castDistance = 0.1f;
+
+        RaycastHit2D hit = Physics2D.CapsuleCast(origin, size, CapsuleDirection2D.Vertical, 0f, Vector2.down, castDistance, groundLayer);
+        Debug.DrawLine(origin, origin + Vector2.down * (col.bounds.extents.y + castDistance), Color.green);
+
         return hit.collider != null;
     }
+
+
 
     void UpdateAnimations()
     {
