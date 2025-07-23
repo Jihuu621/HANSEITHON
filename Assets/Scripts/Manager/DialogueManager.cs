@@ -88,7 +88,7 @@ public class DialogueManager : MonoBehaviour
                 audioSource.PlayOneShot(typeSound);
             }
 
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSecondsRealtime(typingSpeed);
         }
 
         isTyping = false;
