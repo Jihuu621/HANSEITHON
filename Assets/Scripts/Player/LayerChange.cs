@@ -31,7 +31,7 @@ public class LayerChange : MonoBehaviour
             Debug.LogWarning("Vignette Image가 연결되지 않았습니다.");
         }
 
-        LayerSwitch();
+        LayerSwitch(true);
     }
 
     private void Update()
@@ -40,35 +40,37 @@ public class LayerChange : MonoBehaviour
         {
             prevLayer = layer;
             layer = (layer > 1) ? layer - 1 : maxLayer;
-            LayerSwitch();
+            LayerSwitch(false);
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             prevLayer = layer;
             layer = (layer < maxLayer) ? layer + 1 : 1;
-            LayerSwitch();
+            LayerSwitch(false);
         }
     }
 
-    private void LayerSwitch()
+    private void LayerSwitch(bool isfirst)
     {
-        // 이전 코루틴 취소
-        if (vignetteCoroutine != null)
+        if (!isfirst)
         {
-            StopCoroutine(vignetteCoroutine);
-            vignetteCoroutine = null;
-        }
+            // 이전 코루틴 취소
+            if (vignetteCoroutine != null)
+            {
+                StopCoroutine(vignetteCoroutine);
+                vignetteCoroutine = null;
+            }
 
-        // 비네트 이미지 색상 & 알파 초기화
-        if (vignetteImage != null)
-        {
-            Color c = GetColorForLayer(layer);
-            c.a = 0.7f;
-            vignetteImage.color = c;
-            vignetteCoroutine = StartCoroutine(FadeOutVignette());
+            // 비네트 이미지 색상 & 알파 초기화
+            if (vignetteImage != null)
+            {
+                Color c = GetColorForLayer(layer);
+                c.a = 0.7f;
+                vignetteImage.color = c;
+                vignetteCoroutine = StartCoroutine(FadeOutVignette());
+            }
         }
-
         for (int i = 0; i < layerObjs.Length; i++)
         {
             GameObject obj = layerObjs[i];
