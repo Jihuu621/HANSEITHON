@@ -30,8 +30,7 @@ public class EndButtonController : MonoBehaviour
 
         if (clickCount >= requiredClicks)
         {
-            Debug.Log("∆„");
-            // SceneManager.LoadScene("¥Ÿ¿Ωæ¿¿Ã∏ß");
+            SceneManager.LoadScene("888");
         }
     }
 }
