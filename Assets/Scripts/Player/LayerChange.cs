@@ -29,7 +29,7 @@ public class LayerChange : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && layer != 1)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && layer != 1)
         {
             layer--;
             LayerSwitch();
@@ -38,7 +38,7 @@ public class LayerChange : MonoBehaviour
         }
                       
 
-        if (Input.GetKeyDown(KeyCode.E) && layer !=           maxLayer)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && layer != maxLayer)
         {
             layer++;
             LayerSwitch();
