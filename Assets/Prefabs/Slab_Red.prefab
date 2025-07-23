@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1379650409691916058}
   - component: {fileID: 7898405104506854408}
-  - component: {fileID: 7880198310738181210}
+  - component: {fileID: 6045478796826604119}
   m_Layer: 3
   m_Name: Slab_Red
   m_TagString: Untagged
@@ -89,8 +89,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &7880198310738181210
-PolygonCollider2D:
+--- !u!61 &6045478796826604119
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,7 +123,7 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.012316704, y: 0.40055025}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -133,41 +133,8 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.7740741, y: 0.0018518518}
-      - {x: 0.8333333, y: 0.06111111}
-      - {x: 0.8888889, y: 0.109259255}
-      - {x: 0.9592593, y: 0.28703704}
-      - {x: 0.9629629, y: 0.33888888}
-      - {x: 1.0111111, y: 0.35}
-      - {x: 1.0111111, y: 0.47592592}
-      - {x: 1.0037037, y: 0.48333332}
-      - {x: -0.95185184, y: 0.48333332}
-      - {x: -1.0111111, y: 0.42407405}
-      - {x: -1.0111111, y: 0.11296296}
-      - {x: -0.89259255, y: -0.005555555}
-      - {x: -0.7777778, y: -0.06851852}
-      - {x: -0.67037034, y: -0.18703704}
-      - {x: -0.537037, y: -0.24259259}
-      - {x: -0.47777778, y: -0.30185184}
-      - {x: -0.43333334, y: -0.30925927}
-      - {x: -0.4259259, y: -0.3685185}
-      - {x: -0.062962964, y: -0.5388889}
-      - {x: -0.01111111, y: -0.5388889}
-      - {x: -0.01111111, y: -0.65}
-      - {x: 0.048148148, y: -0.7092593}
-      - {x: 0.18518518, y: -0.7092593}
-      - {x: 0.24444444, y: -0.6537037}
-      - {x: 0.31851852, y: -0.43518516}
-      - {x: 0.36666667, y: -0.41666666}
-    - - {x: -0.9592593, y: 0.7092593}
-      - {x: -1.0111111, y: 0.6611111}
-      - {x: -1.0111111, y: 0.5277778}
-      - {x: 0.95555556, y: 0.5277778}
-      - {x: 1.0111111, y: 0.5833333}
-      - {x: 1.0111111, y: 0.7092593}
-  m_UseDelaunayMesh: 0
+  m_Size: {x: 2.0296497, y: 0.6144012}
+  m_EdgeRadius: 0
 --- !u!1 &7958910845370104907
 GameObject:
   m_ObjectHideFlags: 0

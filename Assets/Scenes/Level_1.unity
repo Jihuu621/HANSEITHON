@@ -3472,6 +3472,8 @@ MonoBehaviour:
   layerObjs:
   - {fileID: 1326443520}
   - {fileID: 415431893}
+  particlePrefab: {fileID: 8187156458715690435, guid: b16c9b0048bc66b488a60720fb19f35c, type: 3}
+  particleCount: 10
 --- !u!4 &1188967635
 Transform:
   m_ObjectHideFlags: 0

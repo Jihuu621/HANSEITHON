@@ -7110,6 +7110,10 @@ MonoBehaviour:
   - {fileID: 148540501}
   - {fileID: 1913143617}
   - {fileID: 1428276439}
+  particlePrefab: {fileID: 8187156458715690435, guid: b16c9b0048bc66b488a60720fb19f35c, type: 3}
+  particleDuration: 0.5
+  particleCount: 10
+  particleSize: 0.3
 --- !u!4 &1810592685
 Transform:
   m_ObjectHideFlags: 0
