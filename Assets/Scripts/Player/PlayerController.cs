@@ -7,18 +7,26 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
 
     private Rigidbody2D rb;
-    private BoxCollider2D col;
+    private CapsuleCollider2D col;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
+
+    private bool isJumping;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<BoxCollider2D>();
+        col = GetComponent<CapsuleCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         Move();
         Jump();
+        UpdateAnimations();
+        CheckLanding();
     }
 
     void Move()
@@ -28,10 +36,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             moveInput = -1f;
+            spriteRenderer.flipX = false;
         }
         else if (Input.GetKey(KeyCode.D))
         {
             moveInput = 1f;
+            spriteRenderer.flipX = true;
         }
 
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
@@ -42,6 +52,7 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && IsGrounded())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            isJumping = true;
         }
     }
 
@@ -49,5 +60,26 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0f, Vector2.down, 0.1f, groundLayer);
         return hit.collider != null;
+    }
+
+    void UpdateAnimations()
+    {
+        float speed = Mathf.Abs(rb.linearVelocity.x);
+        float verticalVelocity = rb.linearVelocity.y;
+        bool grounded = IsGrounded();
+
+        animator.SetFloat("Speed", speed);
+        animator.SetBool("IsGrounded", grounded);
+        animator.SetBool("IsJumping", isJumping && verticalVelocity > 0f); 
+        animator.SetFloat("VerticalVelocity", verticalVelocity);
+    }
+
+    void CheckLanding()
+    {
+        if (isJumping && IsGrounded() && rb.linearVelocity.y <= 0f)
+        {
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
+        }
     }
 }
