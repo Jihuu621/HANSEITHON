@@ -13,11 +13,6 @@ public class LayerChange : MonoBehaviour
     
     private void LayerSwitch()
     {
-        foreach (GameObject newlayer in layerObjs)
-        {
-            Debug.Log(newlayer); // 각 요소를 출력
-        }
-
         for (int i = 0; i < layerObjs.Length; i++)
         {
             if (i+1 == layer)
@@ -25,6 +20,11 @@ public class LayerChange : MonoBehaviour
             else
                 layerObjs[i].SetActive(false);
         }
+    }
+
+    private void Start()
+    {
+        LayerSwitch();
     }
 
     private void Update()
