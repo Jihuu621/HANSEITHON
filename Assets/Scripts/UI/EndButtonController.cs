@@ -7,7 +7,6 @@ public class EndButtonController : MonoBehaviour
 {
     public Button endButton;
     public TextMeshProUGUI endButtonText;
-    public int requiredClicks = 3;
 
     private int clickCount = 0;
 
@@ -26,11 +25,6 @@ public class EndButtonController : MonoBehaviour
         if (clickCount == 1)
         {
             endButtonText.text = "¡æ";
-        }
-
-        if (clickCount >= requiredClicks)
-        {
-            SceneManager.LoadScene("888");
         }
     }
 }
