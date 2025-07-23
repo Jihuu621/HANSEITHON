@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportTarget: {fileID: 0}
+  telTar2: {fileID: 0}
+  telTar3: {fileID: 0}
 --- !u!70 &4807485685128237708
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -183,8 +185,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.04789096, y: -0.009860516}
-  m_Size: {x: 0.8644432, y: 1.9930668}
+  m_Offset: {x: 0.04789096, y: -0.0042660236}
+  m_Size: {x: 0.8644432, y: 1.9818778}
   m_Direction: 0
 --- !u!95 &5094249119238283638
 Animator:
