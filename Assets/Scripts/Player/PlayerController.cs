@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         // W, Space มกวม
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && IsGrounded())
+        if ((Input.GetKeyDown(KeyCode.W)) && IsGrounded())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
