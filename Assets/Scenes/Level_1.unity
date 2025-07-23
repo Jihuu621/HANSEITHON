@@ -2008,9 +2008,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8394187048901553018, guid: 84d208bd020b0b94ca40533a561d6bd6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 771549837}
   m_SourcePrefab: {fileID: 100100000, guid: 84d208bd020b0b94ca40533a561d6bd6, type: 3}
---- !u!4 &771549836 stripped
+--- !u!1 &771549836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8394187048901553018, guid: 84d208bd020b0b94ca40533a561d6bd6, type: 3}
+  m_PrefabInstance: {fileID: 771549835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &771549837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771549836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09faf02d252a60643a9066b6ed651a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTiltAngle: 60
+  tiltSpeed: 50
+  recoverySpeed: 2
+--- !u!4 &771549840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8294832077064998589, guid: 84d208bd020b0b94ca40533a561d6bd6, type: 3}
   m_PrefabInstance: {fileID: 771549835}
@@ -3244,7 +3267,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2670346827572773543, guid: a52233161ce29d9469608f63b3023c06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1631272542}
   m_SourcePrefab: {fileID: 100100000, guid: a52233161ce29d9469608f63b3023c06, type: 3}
 --- !u!4 &1135378763 stripped
 Transform:
@@ -3397,10 +3423,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 771549840}
   - {fileID: 90511244}
   - {fileID: 1821598724}
   - {fileID: 1853847579}
-  - {fileID: 771549836}
   - {fileID: 1740877851}
   - {fileID: 649874795}
   - {fileID: 1855470510}
@@ -4031,7 +4057,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2670346827572773543, guid: a52233161ce29d9469608f63b3023c06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1668847093}
   m_SourcePrefab: {fileID: 100100000, guid: a52233161ce29d9469608f63b3023c06, type: 3}
 --- !u!4 &1626040973 stripped
 Transform:
@@ -4154,6 +4183,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsPanel: {fileID: 470819908}
+--- !u!1 &1631272539 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2670346827572773543, guid: a52233161ce29d9469608f63b3023c06, type: 3}
+  m_PrefabInstance: {fileID: 1135378762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1631272542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631272539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09faf02d252a60643a9066b6ed651a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTiltAngle: 60
+  tiltSpeed: 50
+  recoverySpeed: 2
 --- !u!4 &1640147032 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7001810949367006031, guid: 0fbfee36316916e42bf24788e65a6c07, type: 3}
@@ -4472,6 +4521,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1668847090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2670346827572773543, guid: a52233161ce29d9469608f63b3023c06, type: 3}
+  m_PrefabInstance: {fileID: 1626040972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1668847093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668847090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09faf02d252a60643a9066b6ed651a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTiltAngle: 60
+  tiltSpeed: 50
+  recoverySpeed: 2
 --- !u!1 &1674621303
 GameObject:
   m_ObjectHideFlags: 0
@@ -6252,11 +6321,11 @@ PrefabInstance:
       objectReference: {fileID: 1927433530}
     - target: {fileID: 8435831891342572006, guid: d1627b5470a6baf4b875c594b29c812b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.29
+      value: 77.4
       objectReference: {fileID: 0}
     - target: {fileID: 8435831891342572006, guid: d1627b5470a6baf4b875c594b29c812b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.19
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8435831891342572006, guid: d1627b5470a6baf4b875c594b29c812b, type: 3}
       propertyPath: m_LocalPosition.z
