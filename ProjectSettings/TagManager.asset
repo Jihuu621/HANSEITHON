@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Obstacle
+  - Obstacle1
+  - Obstacle2
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX
