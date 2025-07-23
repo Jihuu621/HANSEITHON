@@ -133,7 +133,7 @@ public class LayerChange : MonoBehaviour
         while (elapsed < vignetteFadeDuration)
         {
             elapsed += Time.deltaTime;
-            float alpha = Mathf.Lerp(0.25f, 0f, elapsed / vignetteFadeDuration);
+            float alpha = Mathf.Lerp(0.1f, 0f, elapsed / vignetteFadeDuration);
             c.a = alpha;
             vignetteImage.color = c;
             yield return null;
