@@ -55,11 +55,13 @@ public class DialogueManager : MonoBehaviour
                 }
                 else
                 {
+                    Time.timeScale = 1f;
                     gameObject.SetActive(false);
                 }
             }
         }
     }
+
 
     void ShowLine(DialogueLine line)
     {
@@ -121,7 +123,9 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue()
     {
         index = 0;
+        Time.timeScale = 0f;
         if (dialogueLines.Count > 0)
             ShowLine(dialogueLines[index]);
     }
+
 }
