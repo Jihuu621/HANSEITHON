@@ -5768,7 +5768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abf2b5c829a1b6469a71d05ce84630b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Level_4
+  sceneName: Level_5
 --- !u!61 &1248331385
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7927,7 +7927,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endButton: {fileID: 283593465}
   endButtonText: {fileID: 869157670}
-  requiredClicks: 3
 --- !u!114 &1865079475
 MonoBehaviour:
   m_ObjectHideFlags: 0
