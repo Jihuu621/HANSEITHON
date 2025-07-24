@@ -154,6 +154,7 @@ MonoBehaviour:
   teleportTarget: {fileID: 0}
   telTar2: {fileID: 0}
   telTar3: {fileID: 0}
+  respawnParticlePrefab: {fileID: 8187156458715690435, guid: b16c9b0048bc66b488a60720fb19f35c, type: 3}
 --- !u!70 &4807485685128237708
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -322,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be50271a3429674586ff860e0d185ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundClip: {fileID: 8300000, guid: f403db044eba8194190f6faa3f2c019c, type: 3}
+  soundClip: {fileID: 8300000, guid: d4538b24a173cba448eccc5fcf0123c4, type: 3}
 --- !u!1 &6840869694935399768
 GameObject:
   m_ObjectHideFlags: 0
