@@ -3200,7 +3200,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 934789148}
         m_TargetAssemblyTypeName: SettingsUI, Assembly-CSharp
         m_MethodName: OpenSettings
         m_Mode: 1
