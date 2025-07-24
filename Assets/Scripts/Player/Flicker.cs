@@ -64,7 +64,6 @@ public class Flicker : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("Âî¸´");
             yield return FadeAlpha(1f, 0f);
             yield return new WaitForSeconds(delayBetweenFlickers + Random.Range(5, 10));
             yield return FadeAlpha(0f, 1f);
